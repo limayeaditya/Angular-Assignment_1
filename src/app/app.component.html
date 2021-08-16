@@ -1,0 +1,39 @@
+<div class='container'>
+    <h3>List of Posts</h3>
+    <h4 *ngIf="posts?.length<=0; else postsTable">No data available</h4>
+    <ng-template #postsTable>
+        <table class="table table-bordered table-hover"> 
+            <thead class="thead-dark">
+                <tr>
+                    <th>User ID</th>
+                    <th>Id</th>
+                    <th>Title</th>
+                    <th>Body</th>
+                </tr>
+                
+            </thead>
+            <tbody>
+                <tr *ngFor="let post of posts | paginate: {
+                    id: 'post-list',
+                    itemsPerPage: 5,
+                    currentPage: page,
+                    totalItems: totalPosts
+                }">
+                    <td>{{post.userId || "N/A"}}</td>
+                    <td>{{post.id || "N/A"}}</td>
+                    <td>{{(post.title) || "N/A"}}</td>
+                    <td>{{post.body || "N/A"}}</td>
+                    
+                </tr>
+            </tbody>
+        </table>
+        <div>
+            <pagination-controls 
+                id="post-list" 
+                directionalLinks = "false"
+                [maxSize] = 5
+                (pageChange)="page = $event" 
+            ></pagination-controls>
+        </div>
+    </ng-template>
+</div>

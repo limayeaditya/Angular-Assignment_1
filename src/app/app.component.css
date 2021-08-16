@@ -1,0 +1,21 @@
+.container{
+    background-color: rgb(216, 218, 224);
+}
+
+h3{
+    padding-top: 30px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+table{
+    border: black;
+}
+thead{
+    text-align: center;
+    background-color: rgb(216, 216, 75);
+}
+
+td{
+    padding: 10px;
+    background-color: rgb(206, 206, 172);
+}
