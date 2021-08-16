@@ -1,12 +1,12 @@
 <div class='container'>
-    <h3>List of Posts</h3>
+    <h3>A List of Posts</h3>
     <h4 *ngIf="posts?.length<=0; else postsTable">No data available</h4>
     <ng-template #postsTable>
         <table class="table table-bordered table-hover"> 
             <thead class="thead-dark">
                 <tr>
+                    <th>Sr. No.</th>
                     <th>User ID</th>
-                    <th>Id</th>
                     <th>Title</th>
                     <th>Body</th>
                 </tr>
@@ -19,8 +19,8 @@
                     currentPage: page,
                     totalItems: totalPosts
                 }">
-                    <td>{{post.userId || "N/A"}}</td>
                     <td>{{post.id || "N/A"}}</td>
+                    <td>{{post.userId || "N/A"}}</td>
                     <td>{{(post.title) || "N/A"}}</td>
                     <td>{{post.body || "N/A"}}</td>
                     
